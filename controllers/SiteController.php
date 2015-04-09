@@ -12,7 +12,7 @@ use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     public function behaviors()
     {
