@@ -15,6 +15,9 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+#db related 
+/config/db.php
+
 # composer itself is not needed
 composer.phar
 
@@ -26,5 +29,5 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-#db related 
-db.php
+/migrations
+/console
