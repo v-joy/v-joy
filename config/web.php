@@ -8,8 +8,7 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'uYpWnV1CRq0ApEif-fO7eFPw7bt1uGqO',
+            'cookieValidationKey' => 'uYpWnV1CR0ApEi',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -27,6 +26,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+        ],
+        'view' => [
+            'renderers' => [
+                'tpl' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                    'cachePath' => '@runtime/Smarty/cache',
+                ],
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

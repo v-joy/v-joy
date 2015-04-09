@@ -47,6 +47,11 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionTest()
+    {
+        return $this->renderPartial('index.tpl',["name"=>"test"]);
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
