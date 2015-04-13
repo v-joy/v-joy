@@ -12,13 +12,9 @@ use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 
-class BaseController extends Controller
+class BaseManageController extends BaseController
 {
     //public $layout  = false;
-
-    protected $_viewVars = [
-        'DEBUG'=>YII_DEBUG,
-    ];
 
     public function behaviors()
     {
@@ -38,13 +34,4 @@ class BaseController extends Controller
             ],
         ];
     }
-
-    public function Render($view,$data=[]){
-
-        $this->_viewVars['baseUrl'] = Yii::getAlias('@web');
-        $this->_viewVars['HOST'] = $_SERVER['HTTP_HOST'];
-        return parent::Render($view,array_merge($this->_viewVars,$data));
-    }
-
-
 }

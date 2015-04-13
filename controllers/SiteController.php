@@ -12,7 +12,7 @@ use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 
-class SiteController extends BaseController
+class SiteController extends BaseFrontController
 {
     public function behaviors()
     {
@@ -57,6 +57,13 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
+        /*
+        if (\Yii::$app->user->can('createPost')) {
+            echo "can create post";
+        }else{
+            echo "no permission!";
+        }
+        */
         return $this->render('index');
     }
 

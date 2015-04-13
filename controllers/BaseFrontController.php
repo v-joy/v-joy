@@ -11,15 +11,17 @@ use app\models\ContactForm;
 use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
+use app\models;
 
-class BaseController extends Controller
+class BaseFrontController extends BaseController
 {
     //public $layout  = false;
 
-    protected $_viewVars = [
-        'DEBUG'=>YII_DEBUG,
-    ];
+    public function init(){
+        parent::init();
+        $this->_viewVars["categories"] =models\Category::find()->orderBy("weight desc")->all();
 
+    }
     public function behaviors()
     {
         return [
@@ -38,13 +40,5 @@ class BaseController extends Controller
             ],
         ];
     }
-
-    public function Render($view,$data=[]){
-
-        $this->_viewVars['baseUrl'] = Yii::getAlias('@web');
-        $this->_viewVars['HOST'] = $_SERVER['HTTP_HOST'];
-        return parent::Render($view,array_merge($this->_viewVars,$data));
-    }
-
 
 }
