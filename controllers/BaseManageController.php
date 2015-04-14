@@ -14,7 +14,7 @@ use app\models\ResetPasswordForm;
 
 class BaseManageController extends BaseController
 {
-    //public $layout  = false;
+    public $layout  = "manage";
 
     public function behaviors()
     {
