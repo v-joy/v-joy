@@ -4,14 +4,6 @@ namespace app\controllers;
 
 use app\models\Article;
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
-use app\models\SignupForm;
-use app\models\PasswordResetRequestForm;
-use app\models\ResetPasswordForm;
 use app\models\Category;
 
 class BaseFrontController extends BaseController
