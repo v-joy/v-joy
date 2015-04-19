@@ -185,4 +185,8 @@ class User extends Base implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public static function checkLogin(){
+        //mark todo
+    }
 }

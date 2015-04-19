@@ -8,6 +8,11 @@ class BaseManageController extends BaseController
 {
     public $layout  = "manage";
 
+    public function init(){
+        parent::init();
+        //check login
+    }
+
     public function behaviors()
     {
         return [
