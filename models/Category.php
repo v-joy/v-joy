@@ -46,10 +46,10 @@ class Category extends Base
             'id' => '主键',
             'name' => '名称',
             'fatherId' => 'Father ID',
-            'type' => 'Type',
-            'weight' => 'Weight',
-            'createTime' => 'Create Time',
-            'createId' => 'Create ID',
+            'type' => '类型',
+            'weight' => '权重',
+            'createTime' => '创建时间',
+            'createId' => '创建者',
         ];
     }
 }

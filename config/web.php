@@ -35,12 +35,54 @@ $config = [
                 ],
             ],
         ],
+        'urlManager'=>[
+            'showScriptName'=>false,
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
+            'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => [
+                    //    'article', 'category', 'product',
+                    //    'user', 'manage/article'
+                        'test'
+                    ],
+                    'except' => ['HEAD', 'PATCH', 'OPTIONS'],
+                    'tokens'  => ['{id}' => '<id:\\w[\\w,]*>'],
+                ],
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                'GET <controller:\w+>/<id:\d+>'=>'<controller>/view',
+
+
+            ],
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error'],
+                    'logFile' => '@app/runtime/logs/error.log',
+                    'maxFileSize'=>10240,
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['warning'],
+                    'logFile' => '@app/runtime/logs/warnning.log',
+                    'maxFileSize'=>10240,
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['trace','info'],
+                    'logFile' => '@app/runtime/logs/info.log',
+                    'maxFileSize'=>10240,
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['profile'],
+                    'logFile' => '@app/runtime/logs/profile.log',
+                    'maxFileSize'=>10240,
                 ],
             ],
         ],

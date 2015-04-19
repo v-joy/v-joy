@@ -12,7 +12,6 @@ class BaseController extends Controller
     //public $layout  = false;
 
     protected $_viewVars = [
-        'DEBUG'=>YII_DEBUG,
     ];
 
     public function behaviors()
