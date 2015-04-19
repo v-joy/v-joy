@@ -50,8 +50,11 @@ $config = [
                     'except' => ['HEAD', 'PATCH', 'OPTIONS'],
                     'tokens'  => ['{id}' => '<id:\\w[\\w,]*>'],
                 ],
+
+                'GET /' => "site/index",
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>'=>'<controller>/index',
                 'GET <controller:\w+>/<id:\d+>'=>'<controller>/view',
 
 

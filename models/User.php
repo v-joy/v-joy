@@ -47,6 +47,22 @@ class User extends Base implements IdentityInterface
     /**
      * @inheritdoc
      */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => '用户名',
+            'email' => '邮件',
+            'created_at' => '创建时间',
+            'updated_at' => '更新时间',
+            'categoryId' => 'Category ID',
+            'status' => '状态',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -186,7 +202,4 @@ class User extends Base implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    public static function checkLogin(){
-        //mark todo
-    }
 }

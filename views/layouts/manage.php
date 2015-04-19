@@ -27,7 +27,7 @@ AppAsset::register($this);
         <?php
             NavBar::begin([
                 'brandLabel' => Yii::$app->params["companyName"],
-                'brandUrl' => Yii::$app->homeUrl,
+                'brandUrl' => "#",//Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
@@ -36,17 +36,18 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     //['label' => '主页', 'url' => ['/site/index']],
-                    ['label' => '类别', 'url' => ['/category/index']],
-                    ['label' => '文章', 'url' => ['/article/index']],
-                    ['label' => '产品', 'url' => ['/product/index']],
-                    ['label' => '用户', 'url' => ['/user/index']],
-                    /*
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-                    */
+                    Yii::$app->user->can("category/index")?
+                    ['label' => '类别', 'url' => ['/category/index']]:"",
+                    Yii::$app->user->can("article/index")?
+                    ['label' => '文章', 'url' => ['/article/index']]:"",
+                    Yii::$app->user->can("product/index")?
+                    ['label' => '产品', 'url' => ['/product/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                    ['label' => '用户', 'url' => ['/user/index']]:"",
+                    ['label' => '退出 (' . Yii::$app->user->identity->username . ')',
+                        'url' => ['/site/logout'],
+                        'linkOptions' => ['data-method' => 'post']
+                    ],
                 ],
             ]);
             NavBar::end();

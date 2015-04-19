@@ -25,6 +25,10 @@ class Category extends Base
         return 'category';
     }
 
+    public static function showName(){
+        return "类别";
+    }
+
     /**
      * @inheritdoc
      */

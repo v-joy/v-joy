@@ -31,7 +31,7 @@ class Article extends Base
     public function rules()
     {
         return [
-            [['id', 'title', 'content', 'userId', 'createTime', 'categoryId'], 'required'],
+            [['title', 'content', 'userId', 'createTime', 'categoryId'], 'required'],
             [['id', 'userId', 'createTime', 'categoryId', 'status'], 'integer'],
             [['content'], 'string'],
             [['title'], 'string', 'max' => 128]
@@ -45,12 +45,12 @@ class Article extends Base
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
-            'userId' => 'User ID',
-            'createTime' => 'Create Time',
-            'categoryId' => 'Category ID',
-            'status' => 'Status',
+            'title' => '题目',
+            'content' => '正文',
+            'userId' => '用户 ID',
+            'createTime' => '创建时间',
+            'categoryId' => '类别id',
+            'status' => '状态',
         ];
     }
 }

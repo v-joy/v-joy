@@ -11,6 +11,14 @@ class BaseManageController extends BaseController
     public function init(){
         parent::init();
         //check login
+        if(Yii::$app->user->isGuest){
+            $this->redirect(yii::$app->homeUrl.yii::$app->user->loginUrl[0],401);
+        }
+        $action = yii::$app->requestedRoute;
+        if (! \Yii::$app->user->can($action)) {
+            //mark todo
+            echo "没有权限查看！";exit;
+        }
     }
 
     public function behaviors()
@@ -31,4 +39,5 @@ class BaseManageController extends BaseController
             ],
         ];
     }
+
 }
