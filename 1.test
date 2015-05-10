@@ -1,0 +1,99 @@
+/**
+ * Created by lei.sun on 15/3/30.
+ */
+
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var requirejs = require('requirejs');
+var clc = require('cli-color');
+var less = require('gulp-less');
+var minifyCSS = require('gulp-minify-css');
+var rev = require('gulp-rev');
+
+var config = {
+    appDir: 'web/js',
+    baseUrl: 'libs',
+    dir: 'web/build/js',
+    paths: {
+        app: '../app'
+    },
+    removeCombined: true,
+    optimize: 'none',
+    shim: {
+        bootstrap: ['jquery'],
+        'jquery.datetimepicker': ['jquery'],
+        ystep: ['jquery']
+    },
+    modules: [
+        {
+            name: "../config",
+            include: [
+                'jquery',
+                'bootstrap',
+                'jquery.form',
+                'jquery.datetimepicker',
+                'underscore',
+                'ystep'
+            ]
+        },
+        {
+            name: "app/space/space",
+            exclude: ['../config']
+        },
+        {
+            name: "app/module/module",
+            exclude: ['../config']
+        },
+        {
+            name: "app/person/person",
+            exclude: ['../config']
+        },
+        {
+            name: "app/apply/apply",
+            exclude: ['../config']
+        }
+    ]
+};
+
+function optimizeJs () {
+    console.info(clc.blue("optimizing..."));
+    requirejs.optimize(config, function () {
+        console.info(clc.green('optimization OK!'));
+    }, function(err) {
+        console.info(clc.red(err));
+    });
+}
+
+gulp.task('build_js', function () {
+    optimizeJs();
+});
+
+gulp.task('less', function () {
+    return gulp.src('./web/less/style.less')
+        .pipe(less())
+        .pipe(gulp.dest('./web/css'));
+});
+
+gulp.task('build_css', ['less'], function () {
+    gulp.src([
+        './web/css/bootstrap.min.css',
+        './web/css/buttons.css',
+        './web/css/jquery.datetimepicker.css',
+        './web/css/ystep.css',
+        './web/css/style.css'
+    ])
+        .pipe(concat('style.css'))
+        .pipe(minifyCSS({
+            keepSpecialComments: 0
+        }))
+        .pipe(rev())
+        .pipe(gulp.dest('./web/build/'))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('./web/build/'));
+});
+
+gulp.task('watch', ['default'], function () {
+    gulp.watch('web/js-src/**/*', ['build_js']);
+});
+
+gulp.task('default', ['build_js', 'build_css']);
