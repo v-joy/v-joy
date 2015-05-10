@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Article */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '文章', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-view">
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'content:ntext',
             'userId',
-            'createTime:datetime',
+            ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
             'categoryId',
             'status',
         ],

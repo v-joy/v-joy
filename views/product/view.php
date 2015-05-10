@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Product */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '产品', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-view">
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             'description:ntext',
             'userId',
-            'createTime:datetime',
+            ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
             'status',
         ],
     ]) ?>

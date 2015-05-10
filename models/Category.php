@@ -35,8 +35,8 @@ class Category extends Base
     public function rules()
     {
         return [
-            [['fatherId', 'weight', 'createTime', 'createId'], 'integer'],
-            [['type', 'createTime', 'createId'], 'required'],
+            [['fatherId', 'weight', 'createTime', 'createId'], 'integer','message'=>'必须是整数'],
+            [['type', 'createTime', 'createId'], 'required','message'=>'不能为空'],
             [['name', 'type'], 'string', 'max' => 32]
         ];
     }

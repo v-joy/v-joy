@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Category */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '类别', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-view">
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'fatherId',
             'type',
             'weight',
-            'createTime:datetime',
+            ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
             'createId',
         ],
     ]) ?>

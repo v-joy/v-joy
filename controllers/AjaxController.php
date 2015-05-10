@@ -63,7 +63,6 @@ class AjaxController extends BaseFrontController
     public function actionProducts()
     {
         //mark todo
-
     }
 
     public function actionArticle()
