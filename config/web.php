@@ -6,6 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language'=>'zh-CN',
     'components' => [
         'request' => [
             'cookieValidationKey' => 'uYpWnV1CR0ApEi',
