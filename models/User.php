@@ -55,7 +55,7 @@ class User extends Base implements IdentityInterface
             'email' => '邮件',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
-            'categoryId' => 'Category ID',
+            'categoryId' => '所属',
             'status' => '状态',
         ];
     }

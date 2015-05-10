@@ -32,8 +32,8 @@ class Product extends Base
     public function rules()
     {
         return [
-            [['categoryId', 'name', 'price', 'description'], 'required','message'=>'不能为空'],
-            [['categoryId',  'status'], 'integer','message'=>'必须是整数'],
+            [['categoryId', 'name', 'price', 'description'], 'required'],
+            [['categoryId',  'status'], 'integer'],
             [['description'], 'string'],
             [['name', 'price'], 'string', 'max' => 32]
         ];

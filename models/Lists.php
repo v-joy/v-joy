@@ -29,8 +29,8 @@ class Lists extends Base
     public function rules()
     {
         return [
-            [['id', 'name', 'value', 'fatherId'], 'required','message'=>'不能为空'],
-            [['id', 'fatherId'], 'integer','message'=>'必须是整数'],
+            [['id', 'name', 'value', 'fatherId'], 'required'],
+            [['id', 'fatherId'], 'integer'],
             [['name'], 'string', 'max' => 31],
             [['value'], 'string', 'max' => 128]
         ];
