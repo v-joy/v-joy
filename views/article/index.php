@@ -25,13 +25,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             //'content:ntext',
-            'userId',
+            [
+                "attribute"=>"userId",
+                'label' => '用户',
+                'value' => function($model){
+                    return $model->user->username;
+                }
+            ],
             //'createTime:datetime',
             [
                 "attribute"=>"createTime",
                 'value' => function($model){
                 return date(Yii::$app->params["date"],$model->createTime);
-            }],
+            }
+            ],
             // 'categoryId',
             // 'status',
 

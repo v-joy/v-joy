@@ -55,4 +55,12 @@ class Product extends Base
             'status' => '状态',
         ];
     }
+
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'userId']);
+    }
+
+    public function getCategory(){
+        return $this->hasOne(Category::className(),['id'=>'categoryId']);
+    }
 }

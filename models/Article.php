@@ -38,6 +38,14 @@ class Article extends Base
         ];
     }
 
+    public function getUser(){
+        return $this->hasOne(User::className(),['id'=>'userId']);
+    }
+
+    public function getCategory(){
+        return $this->hasOne(Category::className(),['id'=>'categoryId']);
+    }
+
     /**
      * @inheritdoc
      */

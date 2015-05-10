@@ -23,9 +23,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'categoryId',
+            [
+                "attribute"=>"categoryId",
+                'label' => '类别id',
+                'value' => function($model){
+                    return $model->category->name;
+                }
+            ],
             'name',
             'price',
+            [
+                "attribute"=>"userId",
+                'label' => '用户',
+                'value' => function($model){
+                    return $model->user->username;
+                }
+            ],
             //'description:ntext',
             // 'userId',
             // 'createTime:datetime',

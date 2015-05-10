@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'categoryId',
+            ['label'=>'用户','value'=>$model->category->name],
             'name',
             'price',
             'description:ntext',
-            'userId',
+            ['label'=>'用户','value'=>$model->user->username],
             ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
             'status',
         ],

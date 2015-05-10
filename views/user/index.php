@@ -29,8 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_reset_token',
             'email:email',
             'status',
-            'created_at',
-            'updated_at',
+            [
+                "attribute"=>"created_at",
+                'value' => function($model){
+                    return date(Yii::$app->params["date"],$model->created_at);
+                }
+            ],
+            [
+                "attribute"=>"updated_at",
+                'value' => function($model){
+                    return date(Yii::$app->params["date"],$model->updated_at);
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
