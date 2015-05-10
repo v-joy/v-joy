@@ -4,17 +4,6 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "category".
- *
- * @property integer $id
- * @property string $name
- * @property integer $fatherId
- * @property string $type
- * @property integer $weight
- * @property integer $createTime
- * @property integer $createId
- */
 class Base extends \yii\db\ActiveRecord
 {
     /**
@@ -42,4 +31,17 @@ class Base extends \yii\db\ActiveRecord
         return [
         ];
     }
+
+    public function save($runValidation = true, $attributeNames = NULL){
+        if($this->isNewRecord){
+            if($this->hasAttribute("createTime")){
+                $this->createTime = time();
+            }
+            if($this->hasAttribute("userId")) {
+                $this->userId = Yii::$app->user->id;
+            }
+        }
+        return parent::save($runValidation,$attributeNames);
+    }
+
 }

@@ -13,7 +13,7 @@ use Yii;
  * @property string $type
  * @property integer $weight
  * @property integer $createTime
- * @property integer $createId
+ * @property integer $userId
  */
 class Category extends Base
 {
@@ -35,8 +35,8 @@ class Category extends Base
     public function rules()
     {
         return [
-            [['fatherId', 'weight', 'createTime', 'createId'], 'integer','message'=>'必须是整数'],
-            [['type', 'createTime', 'createId'], 'required','message'=>'不能为空'],
+            [['fatherId', 'weight'], 'integer','message'=>'必须是整数'],
+            [['type'], 'required','message'=>'不能为空'],
             [['name', 'type'], 'string', 'max' => 32]
         ];
     }
@@ -53,7 +53,7 @@ class Category extends Base
             'type' => '类型',
             'weight' => '权重',
             'createTime' => '创建时间',
-            'createId' => '创建者',
+            'userId' => '创建者',
         ];
     }
 }

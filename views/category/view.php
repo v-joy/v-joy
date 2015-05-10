@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'type',
             'weight',
             ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
-            'createId',
+            'userId',
         ],
     ]) ?>
 

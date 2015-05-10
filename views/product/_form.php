@@ -20,10 +20,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'userId')->textInput() ?>
-
-    <?= $form->field($model, 'createTime')->textInput() ?>
-
     <?= $form->field($model, 'status')->textInput() ?>
 
     <div class="form-group">

@@ -16,10 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'userId')->textInput() ?>
-
-    <?= $form->field($model, 'createTime')->textInput() ?>
-
     <?= $form->field($model, 'categoryId')->textInput() ?>
 
     <?= $form->field($model, 'status')->textInput() ?>

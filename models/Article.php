@@ -31,8 +31,8 @@ class Article extends Base
     public function rules()
     {
         return [
-            [['title', 'content', 'userId', 'createTime', 'categoryId'], 'required','message'=>'不能为空'],
-            [['id', 'userId', 'createTime', 'categoryId', 'status'], 'integer','message'=>'必须是整数'],
+            [['title', 'content',  'categoryId'], 'required','message'=>'不能为空'],
+            [['id',  'categoryId', 'status'], 'integer','message'=>'必须是整数'],
             [['content'], 'string'],
             [['title'], 'string', 'max' => 128]
         ];
