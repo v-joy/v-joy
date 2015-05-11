@@ -36,8 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 "attribute"=>"createTime",
                 'value' => function($model){
-                return date(Yii::$app->params["date"],$model->createTime);
-            }
+                    return date(Yii::$app->params["date"],$model->createTime);
+                }
             ],
             // 'categoryId',
             // 'status',

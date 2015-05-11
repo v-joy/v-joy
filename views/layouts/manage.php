@@ -48,6 +48,12 @@ AppAsset::register($this);
                         ['label' => '图片', 'url' => ['/image/index']]:"",
                     Yii::$app->user->can("user/index")?
                         ['label' => '用户', 'url' => ['/user/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '权限/角色', 'url' => ['/auth/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '权限关系', 'url' => ['/authitemchild/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '授权', 'url' => ['/authassignment/index']]:"",
                     ['label' => '|'],
                     ['label' => '我的产品',
                         'url' => ['/product/index?userid='.Yii::$app->user->identity->id]
