@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [
                 "attribute"=>"categoryId",
-                'label' => '类别id',
+                'label' => '类别',
                 'value' => function($model){
                     return $model->category->name;
                 }

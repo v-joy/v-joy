@@ -52,10 +52,6 @@ class UserController extends BaseManageController
         ]);
     }
 
-    public function actionMe(){
-        return $this->run("view",["id"=>Yii::$app->user->identity->id]);
-    }
-
     /**
      * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.

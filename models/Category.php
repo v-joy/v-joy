@@ -49,7 +49,7 @@ class Category extends Base
         return [
             'id' => '主键',
             'name' => '名称',
-            'fatherId' => 'Father ID',
+            'fatherId' => '父类',
             'type' => '类型',
             'weight' => '权重',
             'createTime' => '创建时间',

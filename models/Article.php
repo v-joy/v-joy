@@ -55,9 +55,9 @@ class Article extends Base
             'id' => 'ID',
             'title' => '题目',
             'content' => '正文',
-            'userId' => '用户 ID',
+            'userId' => '用户',
             'createTime' => '创建时间',
-            'categoryId' => '类别id',
+            'categoryId' => '类别',
             'status' => '状态',
         ];
     }
