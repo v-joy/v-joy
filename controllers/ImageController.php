@@ -111,7 +111,9 @@ class ImageController extends BaseManageController
         }
         $instance = $type::findOne($id);
         if(Yii::$app->request->isPost){
-
+            var_dump($_POST);
+            //mark todo
+            // id name type size file  lastModifiedDate
         }else{
             return $this->render("upload",[
                 'instance' => $instance,
