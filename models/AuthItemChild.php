@@ -40,8 +40,8 @@ class AuthItemChild extends \app\models\base
     public function attributeLabels()
     {
         return [
-            'parent' => 'Parent',
-            'child' => 'Child',
+            'parent' => '父类',
+            'child' => '子类',
         ];
     }
 

@@ -42,9 +42,9 @@ class AuthAssignment extends \app\models\base
     public function attributeLabels()
     {
         return [
-            'item_name' => 'Item Name',
-            'user_id' => 'User ID',
-            'created_at' => 'Created At',
+            'item_name' => '名称',
+            'user_id' => '用户',
+            'created_at' => '创建时间',
         ];
     }
 

@@ -23,6 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'item_name',
             'user_id',
             [
+                "attribute"=>"user_id",
+                'value' => function($model){
+                    return $model->user->username;
+                }
+            ],
+            [
                 "attribute"=>"created_at",
                 'value' => function($model){
                     return date(Yii::$app->params["date"],$model->created_at);
