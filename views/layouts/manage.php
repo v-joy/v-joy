@@ -43,9 +43,11 @@ AppAsset::register($this);
                     Yii::$app->user->can("category/index")?
                         ['label' => '类别', 'url' => ['/category/index']]:"",
                     Yii::$app->user->can("user/index")?
-                        ['label' => '用户', 'url' => ['/user/index']]:"",
-                    Yii::$app->user->can("user/index")?
                         ['label' => '参数', 'url' => ['/param/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '图片', 'url' => ['/image/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '用户', 'url' => ['/user/index']]:"",
                     ['label' => '退出 (' . Yii::$app->user->identity->username . ')',
                         'url' => ['/site/logout'],
                         'linkOptions' => ['data-method' => 'post']
