@@ -48,7 +48,17 @@ AppAsset::register($this);
                         ['label' => '图片', 'url' => ['/image/index']]:"",
                     Yii::$app->user->can("user/index")?
                         ['label' => '用户', 'url' => ['/user/index']]:"",
-                    ['label' => '退出 (' . Yii::$app->user->identity->username . ')',
+                    ['label' => '|'],
+                    ['label' => '我的产品',
+                        'url' => ['/product/index?userid='.Yii::$app->user->identity->id]
+                    ],
+                    ['label' => '我的资料',
+                        'url' => ['/user/view/'.Yii::$app->user->identity->id]
+                    ],
+                    ['label' => '修改密码',
+                        'url' => ['/user/update/'.Yii::$app->user->identity->id]
+                    ],
+                    ['label' => '退出('.Yii::$app->user->identity->username.')',
                         'url' => ['/site/logout'],
                         'linkOptions' => ['data-method' => 'post']
                     ],

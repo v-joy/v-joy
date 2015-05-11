@@ -30,8 +30,8 @@ class Image extends Base
     public function rules()
     {
         return [
-            [['id', 'name', 'url', 'type', 'belongId'], 'required'],
-            [['id', 'belongId'], 'integer'],
+            [['name', 'url', 'type', 'belongId'], 'required'],
+            [['belongId'], 'integer'],
             [['name', 'type'], 'string', 'max' => 31],
             [['url'], 'string', 'max' => 128]
         ];

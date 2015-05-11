@@ -39,6 +39,7 @@ AppAsset::register($this);
                     ['label' => 'About', 'url' => ['/site/about']],
                     ['label' => 'signup', 'url' => ['/site/signup']],
                     ['label' => 'forget', 'url' => ['/site/RequestPasswordReset']],
+                    ['label' => 'ResetPassword', 'url' => ['/site/ResetPassword']],
                     //['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :

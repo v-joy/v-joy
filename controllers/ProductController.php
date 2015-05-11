@@ -31,8 +31,14 @@ class ProductController extends BaseManageController
      */
     public function actionIndex()
     {
+        $query = "";
+        if(isset($_GET["userid"])){
+            $query = Product::find()->where(["userId"=>intval($_GET["userid"])]);
+        }else{
+            $query = Product::find();
+        }
         $dataProvider = new ActiveDataProvider([
-            'query' => Product::find(),
+            'query' => $query,
         ]);
 
         return $this->render('index', [
@@ -62,7 +68,8 @@ class ProductController extends BaseManageController
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['/image/upload', "type"=>"product",'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

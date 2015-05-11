@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Images');
+$this->title = "图片";
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="image-index">

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Image;
+use app\models\Product;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -100,6 +101,23 @@ class ImageController extends BaseManageController
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionUpload($type,$id){
+        $model = new Image();
+        $type = 'app\\models\\'.ucfirst(strtolower($type));
+        if(!in_array($type,["app\\models\\Product"])){
+            throw new \Exception("非法访问！",400);
+        }
+        $instance = $type::findOne($id);
+        if(Yii::$app->request->isPost){
+
+        }else{
+            return $this->render("upload",[
+                'instance' => $instance,
+                'model' => $model
+            ]);
+        }
     }
 
     /**
