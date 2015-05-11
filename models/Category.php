@@ -56,4 +56,8 @@ class Category extends Base
             'userId' => '创建者',
         ];
     }
+
+    public static function getType($type,$select = "*"){
+        return Category::find()->select($select)->where(["type"=>$type])->orderBy("weight desc")->all();
+    }
 }

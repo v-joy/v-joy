@@ -36,14 +36,16 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     //['label' => '主页', 'url' => ['/site/index']],
-                    Yii::$app->user->can("category/index")?
-                    ['label' => '类别', 'url' => ['/category/index']]:"",
-                    Yii::$app->user->can("article/index")?
-                    ['label' => '文章', 'url' => ['/article/index']]:"",
                     Yii::$app->user->can("product/index")?
-                    ['label' => '产品', 'url' => ['/product/index']]:"",
+                        ['label' => '产品', 'url' => ['/product/index']]:"",
+                    Yii::$app->user->can("article/index")?
+                        ['label' => '文章', 'url' => ['/article/index']]:"",
+                    Yii::$app->user->can("category/index")?
+                        ['label' => '类别', 'url' => ['/category/index']]:"",
                     Yii::$app->user->can("user/index")?
-                    ['label' => '用户', 'url' => ['/user/index']]:"",
+                        ['label' => '用户', 'url' => ['/user/index']]:"",
+                    Yii::$app->user->can("user/index")?
+                        ['label' => '参数', 'url' => ['/param/index']]:"",
                     ['label' => '退出 (' . Yii::$app->user->identity->username . ')',
                         'url' => ['/site/logout'],
                         'linkOptions' => ['data-method' => 'post']

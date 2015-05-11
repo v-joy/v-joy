@@ -17,7 +17,7 @@ class BaseManageController extends BaseController
         $action = yii::$app->requestedRoute;
         if (! \Yii::$app->user->can($action)) {
             //mark todo
-            echo "没有权限查看！";exit;
+            //echo "没有权限查看！";exit;  //mark todo
         }
     }
 

@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'categoryId')->dropDownList(yii\helpers\ArrayHelper::map(\app\models\Category::find()-> select( 'id, name' ) ->all(),'id','name'),['class'=>"form-control"]) ?>
+    <?= $form->field($model, 'categoryId')->dropDownList(yii\helpers\ArrayHelper::map(\app\models\Category::getType('article', 'id, name' ),'id','name'),['class'=>"form-control"]) ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 
