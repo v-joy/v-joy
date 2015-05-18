@@ -109,7 +109,7 @@ class SiteController extends BaseFrontController
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                    return $this->goHome();//mark
                 }
             }
         }
@@ -119,7 +119,7 @@ class SiteController extends BaseFrontController
         ]);
     } 
 
-    public function actionRequestPasswordReset()
+    public function actionRequestpasswordreset()
     {
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -137,7 +137,8 @@ class SiteController extends BaseFrontController
         ]);
     }
 
-   public function actionResetPassword($token)
+
+    public function actionResetpassword($token)
     {
         try {
             $model = new ResetPasswordForm($token);
@@ -153,10 +154,5 @@ class SiteController extends BaseFrontController
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
-    } 
-
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }

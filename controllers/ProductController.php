@@ -90,6 +90,7 @@ class ProductController extends BaseManageController
 
         if (\Yii::$app->user->can('modifyOwn', ['model' => $model])) {
             //echo 'yes';exit;
+            //mark
         }else{
             //echo 'no';exit;
         }

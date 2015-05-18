@@ -36,11 +36,8 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
                     ['label' => 'signup', 'url' => ['/site/signup']],
-                    ['label' => 'forget', 'url' => ['/site/RequestPasswordReset']],
-                    ['label' => 'ResetPassword', 'url' => ['/site/ResetPassword']],
-                    //['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => 'forget', 'url' => ['/site/request-password-reset']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Login', 'url' => ['/site/login']] :
                         ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',

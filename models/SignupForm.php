@@ -52,7 +52,7 @@ class SignupForm extends Model
 
                 //mark assign role to user
                 $auth = Yii::$app->authManager;
-                $authorRole = $auth->getRole('author');
+                $authorRole = $auth->getRole('shopOwner');
                 $auth->assign($authorRole, $user->getId());
 
                 return $user;
