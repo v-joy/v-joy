@@ -67,7 +67,10 @@ class AuthController extends BaseManageController
     {
         $model = new AuthItem();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $AuthItem = Yii::$app->request->post();
+        $AuthItem['AuthItem']['type'] = Yii::$app->request->get('type');
+
+        if ($model->load($AuthItem) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->name]);
         } else {
             return $this->render('create', [
