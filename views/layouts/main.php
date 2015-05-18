@@ -35,12 +35,12 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'signup', 'url' => ['/site/signup']],
-                    ['label' => 'forget', 'url' => ['/site/request-password-reset']],
+                    //['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => '注册', 'url' => ['/site/signup']],
+                    ['label' => '忘记密码', 'url' => ['/site/requestpasswordreset']],
                     Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                        ['label' => '登录', 'url' => ['/site/login']] :
+                        ['label' => '退出 (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                 ],
