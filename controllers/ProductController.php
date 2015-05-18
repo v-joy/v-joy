@@ -25,6 +25,7 @@ class ProductController extends BaseManageController
         ];
     }
 
+
     /**
      * Lists all Product models.
      * @return mixed
@@ -86,6 +87,12 @@ class ProductController extends BaseManageController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
+        if (\Yii::$app->user->can('modifyOwn', ['model' => $model])) {
+            //echo 'yes';exit;
+        }else{
+            //echo 'no';exit;
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

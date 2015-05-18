@@ -18,6 +18,7 @@ class BaseManageController extends BaseController
         $action = yii::$app->requestedRoute;
         if (! \Yii::$app->user->can($action)) {
             //mark todo
+            Yii::warning("permission denied: ".$action);
             //throw new Exception("no permission",400);
         }
     }

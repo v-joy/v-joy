@@ -133,6 +133,20 @@ class RbacController extends Controller
         $auth->addChild($admin, $shopOwner);
         $auth->addChild($superAdmin, $admin);
 
+        //添加特殊权限： 只能修改自己穿件的信息
+
+        // add the rule
+        $rule = new \app\rbac\modifyOwn();
+        $auth->add($rule);
+
+        // add the "updateOwnPost" permission and associate the rule with it.
+        $updateOwn = $auth->createPermission('modifyOwn');
+        $updateOwn->description = '管理自己的信息';
+        $updateOwn->ruleName = $rule->name;
+        $auth->add($updateOwn);
+
+        $auth->addChild($shopOwner, $updateOwn);
+
         // Assign roles to users. 1 and 2 are IDs returned by IdentityInterface::getId()
         // usually implemented in your User model.
         $auth->assign($shopOwner, 3);
