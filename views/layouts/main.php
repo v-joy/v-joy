@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="shopModule">
 <head>
     <meta charset="utf-8"/>
     <title>水果商店</title>
-    <link rel="stylesheet" type="text/css" href="/web/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet/less" type="text/css" href="/web/less/all-style.less" />
 
     <!-- set options before less.js script -->
@@ -34,7 +33,7 @@
         <div class="nav">
             <ul>
                 <li><a href="#">首页</a></li>
-                <li><a href="#">商品</a></li>
+                <li><a href="#/list">商品列表</a></li>
             </ul>
             <div class="login-wrap">
                 <a href="#">登录</a>
@@ -43,9 +42,7 @@
         </div>
     </div>
 </div>
-<div id="main">
-
-</div>
+<div id="main" ng-view></div>
 <div id="footer">
     <hr/>
     <div class="info-box clearfix">
@@ -84,7 +81,11 @@
     </div>
     <p>Copyright:©2015美团网团购 meituan.com 京ICP证070791号 京公网安备11010502025545号 电子公告服务规则s</p>
 </div>
-<script src="/web/js/layouts/main.js"></script>
 <script src="/web/js/common/angular.min.js"></script>
+<script src="/web/js/common/angular-route.js"></script>
+<script src="/web/js/common/angular-resource.js"></script>
+<script src="/web/js/common/angular-animate.js"></script>
+<script src="/web/js/main.js"></script>
+<script src="/web/js/controller.js"></script>
 </body>
 </html>
