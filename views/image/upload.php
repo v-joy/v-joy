@@ -28,12 +28,13 @@ $this->registerCssFile($baseUrl."/upload/css/diyUpload.css");
             console.info( data );
         },
         error:function( err ) {
-            console.info( err );
+            alert(err);
         },
         buttonText : '选择文件',
-        chunked:true,
+        //chunked:true,
+        chunked:false,
         // 分片大小
-        chunkSize:512 * 1024,
+        //chunkSize:512 * 1024,
         //最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
         fileNumLimit:5,
         fileSizeLimit:500000 * 1024,

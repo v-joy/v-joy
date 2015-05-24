@@ -8,6 +8,8 @@ use app\models\Product;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 
 /**
  * ImageController implements the CRUD actions for Image model.
@@ -106,13 +108,26 @@ class ImageController extends BaseManageController
     public function actionUpload($type,$id){
         $model = new Image();
         $type = 'app\\models\\'.ucfirst(strtolower($type));
+
+        $uploadModel = new UploadForm();
+
         if(!in_array($type,["app\\models\\Product"])){
             throw new \Exception("非法访问！",400);
         }
         $instance = $type::findOne($id);
         if(Yii::$app->request->isPost){
-            var_dump($_POST);
+            $uploadModel->file = UploadedFile::getInstanceByName('file');
+
+            if ($uploadModel->file && $uploadModel->validate()) {
+                //$uploadModel->file->saveAs(Yii::$app->basePath.Yii::$app->params['upload.path'] . $uploadModel->file->baseName . '.' . $uploadModel->file->extension);
+                $filename = Yii::$app->user->identity->id . '_' . time() . '.' . $uploadModel->file->extension;
+                $uploadModel->file->saveAs($uploadModel->uploadPath . $filename);
+            }else{
+                //todo handle error
+            }
+//            var_dump($_POST);
             //mark todo
+
             // id name type size file  lastModifiedDate
         }else{
             return $this->render("upload",[

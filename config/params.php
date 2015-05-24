@@ -6,4 +6,5 @@ return [
     'date' => "Y-m-d",
     'supportEmail'=> 'joy_7277@163.com',
     'user.passwordResetTokenExpire'=>3600,
+    'upload.path' => '/web/upload/upload/',
 ];
