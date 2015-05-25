@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Image;
 use app\models\Product;
+use app\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -106,15 +107,23 @@ class ImageController extends BaseManageController
     }
 
     public function actionUpload($type,$id){
+        $result = array(
+            "code" => 200,
+            "msg"  => "",
+            "data" => null
+        );
         $model = new Image();
-        $type = 'app\\models\\'.ucfirst(strtolower($type));
 
         $uploadModel = new UploadForm();
 
-        if(!in_array($type,["app\\models\\Product"])){
-            throw new \Exception("非法访问！",400);
+        if(!in_array($type,["product","user"])){
+            echo json_encode(["code"=>400,"msg"=>'访问不正确','data'=>null]);
+            exit;
         }
-        $instance = $type::findOne($id);
+
+        $instanceModel = 'app\\models\\'.ucfirst(strtolower($type));
+        $instance = $instanceModel::findOne($id);
+
         if(Yii::$app->request->isPost){
             $uploadModel->file = UploadedFile::getInstanceByName('file');
 
@@ -122,12 +131,20 @@ class ImageController extends BaseManageController
                 //$uploadModel->file->saveAs(Yii::$app->basePath.Yii::$app->params['upload.path'] . $uploadModel->file->baseName . '.' . $uploadModel->file->extension);
                 $filename = Yii::$app->user->identity->id . '_' . time() . '.' . $uploadModel->file->extension;
                 $uploadModel->file->saveAs($uploadModel->uploadPath . $filename);
+                $model->name = $uploadModel->file->baseName;
+                $model->url = $filename;
+                $model->type = $type;
+                $model->belongId = $id;
+                if(!$model->save()){
+                    $result["code"] = 500;
+                    $result["msg"] = '保存数据出错：'.implode(';',$model->getErrors());
+                }
             }else{
-                //todo handle error
+                $result["code"] = 400;
+                $result["msg"] = "图片不符合规定！".implode(';',$uploadModel->getErrors());
             }
-//            var_dump($_POST);
-            //mark todo
-
+            echo json_encode($result);
+            exit;
             // id name type size file  lastModifiedDate
         }else{
             return $this->render("upload",[

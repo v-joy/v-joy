@@ -22,7 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'id',
             'name',
-            'url:url',
+            [
+                "attribute"=>"url",
+                'label' => '链接',
+                'format' => 'url',
+                'value' => function($model){
+                    return $model->src;
+                }
+            ],
             'type',
             'belongId',
             // 'createTime:datetime',

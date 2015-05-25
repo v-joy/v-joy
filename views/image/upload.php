@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Image */
-$this->title = '上传图片至: ' . $instance::tableName();
+$this->title = '上传图片至 ' . $instance::tableName();
 $this->params['breadcrumbs'][] = ['label' => '图片', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerJsFile($baseUrl."/upload/js/webuploader.html5only.min.js",['depends' => [yii\web\JqueryAsset::className()]]);
@@ -25,7 +25,9 @@ $this->registerCssFile($baseUrl."/upload/css/diyUpload.css");
     var uploadOption = {
         url:'<?= Yii::$app->request->url ?>',
         success:function( data ) {
-            console.info( data );
+            if(data.code != 200){
+                alert(data.msg);
+            }
         },
         error:function( err ) {
             alert(err);

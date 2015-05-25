@@ -51,4 +51,8 @@ class Image extends Base
             'createTime' => '创建时间',
         ];
     }
+
+    public function getSrc(){
+        return Yii::$app->request->hostInfo.Yii::$app->params['upload.path'].$this->url;
+    }
 }
