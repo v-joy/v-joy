@@ -3,20 +3,15 @@ var shopModule = angular.module('shopModule', ["ngRoute", "ngResource", "ngAnima
 // router to url
 shopModule.config(function ($routeProvider) {
     $routeProvider
-        //.when('/', {
-        //    controller: 'mainCtrl',
-        //    templateUrl: '/tpl/main',
-        //    publicAccess: true
-        //})
-        .when('/list', {
+        .when('/list/:category/:search', {
             controller: 'listCtrl',
             templateUrl: '/web/tpl/productList/index.tpl'
         })
-        .when('/detail', {
+        .when('/detail/:id', {
             controller: 'detailCtrl',
             templateUrl: '/web/tpl/productDetail/index.tpl'
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/list/all/all'
         });
 });
