@@ -12,4 +12,7 @@ shopModule
     })
     .controller('detailCtrl', function ($scope, $routeParams) {
         console.log('i am detail page' + $routeParams.id);
+        $scope.item = {
+            id:$routeParams.id,name: "名称1", desc:"测试", price: 199.00
+        };
     });
