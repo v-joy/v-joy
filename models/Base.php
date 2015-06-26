@@ -32,6 +32,14 @@ class Base extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function toArr($models){
+        $array = [];
+        foreach ((array)$models as $model) {
+            $array[] = $model->getAttributes();
+        }
+        return $array;
+    }
+
     public function save($runValidation = true, $attributeNames = NULL){
         if($this->isNewRecord){
             if($this->hasAttribute("createTime")){

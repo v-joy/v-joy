@@ -11,6 +11,9 @@ use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 
+use app\models\Category;
+use app\models\Article;
+
 class SiteController extends BaseFrontController
 {
     public function behaviors()
@@ -42,10 +45,6 @@ class SiteController extends BaseFrontController
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
         ];
     }
 
@@ -56,14 +55,19 @@ class SiteController extends BaseFrontController
 
     public function actionIndex()
     {
-        /*
-        if (\Yii::$app->user->can('createPost')) {
-            echo "can create post";
-        }else{
-            echo "no permission!";
+        
+        $a_cates = Category::find()->where(["type"=>"article"])->orderBy("weight desc")->all();
+        $a_catesArray = [];
+        foreach($a_cates as $key=>$cate){
+            $cateArray = $cate->getAttributes();
+            $cateArray["articles"] = Category::toArr(Article::find()->where(["categoryId"=>$cateArray["id"],"status"=>1])->select(["id","title"])->all());
+            $a_catesArray[] = $cateArray;
         }
-        */
-        return $this->render('index');
+
+        $this->view->params['p_cates'] = Category::toArr(Category::find()->where(["type"=>"product"])->orderBy("weight desc")->all());
+        $this->view->params['a_cates'] = $a_catesArray;
+
+        return $this->render('index.tpl',[]);
     }
 
     public function actionLogin()

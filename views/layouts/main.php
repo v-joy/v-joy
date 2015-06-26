@@ -2,9 +2,8 @@
 <html ng-app="shopModule">
 <head>
     <meta charset="utf-8"/>
-    <title>水果商店</title>
+    <title><?php echo \Yii::$app->params['title']; ?></title>
     <link rel="stylesheet/less" type="text/css" href="/web/less/all-style.less" />
-
     <!-- set options before less.js script -->
     <script>
         less = {
@@ -32,8 +31,10 @@
     <div class="nav-wrap">
         <div class="nav">
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#/list">商品列表</a></li>
+                <li><a href="#/list/all/all">首页</a></li>
+                <?php foreach ($this->params['p_cates'] as $cate) {
+                    echo "<li><a href='#/list/".$cate["id"]."/all'>".$cate['name']."</a></li>";
+                } ?>
             </ul>
             <div class="login-wrap">
                 <a href="#">登录</a>
@@ -42,44 +43,21 @@
         </div>
     </div>
 </div>
-<div id="main" ng-view></div>
+<?= $content ?>
 <div id="footer">
     <hr/>
     <div class="info-box clearfix">
-        <div class="info-item f-left">
-            <h3>商务合作</h3>
-            <ul>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-            </ul>
-        </div>
-        <div class="info-item f-left">
-            <h3>商务合作</h3>
-            <ul>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-            </ul>
-        </div>
-        <div class="info-item f-left">
-            <h3>商务合作</h3>
-            <ul>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-            </ul>
-        </div>
-        <div class="info-item f-left">
-            <h3>商务合作</h3>
-            <ul>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-                <li><a href="#">提供商家信息</a></li>
-            </ul>
-        </div>
+        <?php foreach ($this->params['a_cates'] as $cate) {?>
+            <div class="info-item f-left">
+                <h3><?= $cate['name'] ?></h3><ul>
+                <?php foreach ($cate['articles'] as $arti){
+                    echo '<li><a href="#/arti/'.$arti['id'].'">'.$arti['name'].'</a></li>';
+                }?>
+                </ul>
+            </div>
+        <?php } ?>
     </div>
-    <p>Copyright:©2015美团网团购 meituan.com 京ICP证070791号 京公网安备11010502025545号 电子公告服务规则s</p>
+    <p>Copyright:©2015  <?= \Yii::$app->params['title'] ?> v-joy.net 京ICP证xxxxxx号 京公网安备110105xxxxxx号 电子公告服务规则</p>
 </div>
 <script src="/web/js/common/angular.min.js"></script>
 <script src="/web/js/common/angular-route.js"></script>

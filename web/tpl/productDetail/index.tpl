@@ -1,5 +1,5 @@
 <div id="product-detail-wrapper">
-    <p class="bread-crumb"><a href="#">首页</a><span>></span><a href="#">水果</a></p>
+    <!-- <p class="bread-crumb"><a href="#">首页</a><span>></span><a href="#">水果</a></p> -->
     <div class="clearfix">
         <div class="f-left detail-img-wrap">
             <div>

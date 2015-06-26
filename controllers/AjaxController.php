@@ -60,9 +60,17 @@ class AjaxController extends BaseFrontController
         }
     }
 
-    public function actionProducts()
+    public function actionProducts($category = 'all', $search = 'all')
     {
-        //mark todo
+        $condition = ['status'=>1];
+        if ('all' !== $category) {
+            $condition['categoryId'] = $category;
+        }
+        if ('all' !== $search) {
+            $condition['name'] = ['like', 'name', $search, false];
+            $condition['description'] = ['like', 'description', $search, false];;
+        }
+        echo json_encode(Product::toArr(Product::find()->where($condition)->all()));
     }
 
     public function actionArticle()
