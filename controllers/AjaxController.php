@@ -53,10 +53,16 @@ class AjaxController extends BaseFrontController
     public function actionProduct()
     {
         $product = Product::find()->where(["id" => $_GET["id"], "status" => 1])->one();
+        $user = $product->user->getAttributes();
+        $product = $product->getAttributes();
+        $product['username'] = $user['username'];
+        $product['email'] = $user['email'];
+        $product['address'] = $user['address'];
+        $product['phone'] = $user['phone'];
         if (empty($product)) {
             $this->error(404, "找不到对应的信息");
         } else {
-            $this->success($product->getAttributes());
+            $this->success($product);
         }
     }
 

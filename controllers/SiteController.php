@@ -39,6 +39,20 @@ class SiteController extends BaseFrontController
         ];
     }
 
+    public function init(){
+        parent::init();
+        $a_cates = Category::find()->where(["type"=>"article"])->orderBy("weight desc")->all();
+        $a_catesArray = [];
+        foreach($a_cates as $key=>$cate){
+            $cateArray = $cate->getAttributes();
+            $cateArray["articles"] = Category::toArr(Article::find()->where(["categoryId"=>$cateArray["id"],"status"=>1])->select(["id","title"])->all());
+            $a_catesArray[] = $cateArray;
+        }
+
+        $this->view->params['p_cates'] = Category::toArr(Category::find()->where(["type"=>"product"])->orderBy("weight desc")->all());
+        $this->view->params['a_cates'] = $a_catesArray;
+    }
+
     public function actions()
     {
         return [
@@ -55,17 +69,6 @@ class SiteController extends BaseFrontController
 
     public function actionIndex()
     {
-        
-        $a_cates = Category::find()->where(["type"=>"article"])->orderBy("weight desc")->all();
-        $a_catesArray = [];
-        foreach($a_cates as $key=>$cate){
-            $cateArray = $cate->getAttributes();
-            $cateArray["articles"] = Category::toArr(Article::find()->where(["categoryId"=>$cateArray["id"],"status"=>1])->select(["id","title"])->all());
-            $a_catesArray[] = $cateArray;
-        }
-
-        $this->view->params['p_cates'] = Category::toArr(Category::find()->where(["type"=>"product"])->orderBy("weight desc")->all());
-        $this->view->params['a_cates'] = $a_catesArray;
 
         return $this->render('index.tpl',[]);
     }

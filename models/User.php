@@ -17,6 +17,8 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property integer $status
+ * @property string $phone
+ * @property string $address
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
@@ -53,6 +55,8 @@ class User extends Base implements IdentityInterface
             'id' => 'ID',
             'username' => '用户名',
             'email' => '邮件',
+            'phone' => '电话',
+            'address' => '地址',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
             'categoryId' => '所属',
@@ -68,6 +72,8 @@ class User extends Base implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['phone'], 'string', 'max' => 15],
+            [['address'], 'string', 'max' => 127],
         ];
     }
 
