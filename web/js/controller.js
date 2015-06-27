@@ -1,18 +1,29 @@
 shopModule
-    .controller('listCtrl', function ($scope, $routeParams) {
-        console.log('i am list page');
-        //1. load data from server
-        //$routeParams.category  $routeParams.search
-        //2. pass data to page
-        $scope.items = [
-            {id: 1, name: "名称1", desc:"测试", price: 199.00},
-            {id: 2, name: "名称2", desc:"测试", price: 139.00},
-            {id: 3, name: "名称3", desc:"测试", price: 84.20}
-        ];
-    })
-    .controller('detailCtrl', function ($scope, $routeParams) {
-        console.log('i am detail page' + $routeParams.id);
-        $scope.item = {
-            id:$routeParams.id,name: "名称1", desc:"测试", price: 199.00
-        };
-    });
+    .controller('listCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
+        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+            $scope.items = data;
+        });
+    }])
+    .controller('detailCtrl', ["$scope", "$routeParams",'productService', function ($scope, $routeParams,$service) {
+        $service.find({id:$routeParams.id},function(data){
+            //mark : need check code==200
+            var createTime = new Date(data.data.createTime);
+            data.data.createTime = createTime.getFullYear() + '-' + createTime.getMonth() + '-' + createTime.getDay();
+            $scope.item = data.data;
+        });
+    }])
+    .controller('loginCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
+        alert("现在不用登录也可以搜索商品了~~");
+        return;
+        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+            $scope.items = data;
+        });
+    }])
+    .controller('registerCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
+        alert("内测阶段,注册服务暂时不对外公开~~");
+        return ;
+        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+            $scope.items = data;
+        });
+    }]);
+

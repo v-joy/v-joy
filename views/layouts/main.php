@@ -22,24 +22,24 @@
 <body>
 <div id="header">
     <div class="logo-wrap">
-        <a class="logo" href="/web/">logo</a>
+        <a class="logo" href="">logo</a>
         <div class="f-right search-wrap">
-            <input type="text" placeholder="请输入所查询商品名"/>
-            <input type="submit" value="搜 索" />
+            <input id="searchInput" type="text" placeholder="请输入所查询商品名"/>
+            <input id="searchButton" type="submit" value="搜 索" />
         </div>
     </div>
     <div class="nav-wrap">
         <div class="nav">
-            <ul>
-                <li><a href="#/list/all/all">首页</a></li>
+            <ul id="header-nav">
+                <li data-id="all" class="active"><a href="#/list/all/all">首页</a></li>
                 <?php foreach ($this->params['p_cates'] as $cate) {
-                    echo "<li><a href='#/list/".$cate["id"]."/all'>".$cate['name']."</a></li>";
+                    echo "<li data-id='".$cate["id"]."'><a href='#/list/".$cate["id"]."/all'>".$cate['name']."</a></li>";
                 } ?>
             </ul>
-            <div class="login-wrap">
-                <a href="#">登录</a>
-                <a href="#">注册</a>
-            </div>
+<!--            <div class="login-wrap">-->
+<!--                <a href="#/login">登录</a>-->
+<!--                <a href="#/register">注册</a>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
@@ -64,6 +64,7 @@
 <script src="/web/js/common/angular-resource.js"></script>
 <script src="/web/js/common/angular-animate.js"></script>
 <script src="/web/js/main.js"></script>
+<script src="/web/js/service.js"></script>
 <script src="/web/js/controller.js"></script>
 </body>
 </html>
