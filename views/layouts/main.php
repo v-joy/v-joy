@@ -22,7 +22,7 @@
 <body>
 <div id="header">
     <div class="logo-wrap">
-        <a class="logo" href="">logo</a>
+        <a class="logo" href=""><img src="/web/img/logo.png"></a>
         <div class="f-right search-wrap">
             <input id="searchInput" type="text" placeholder="请输入所查询商品名"/>
             <input id="searchButton" type="submit" value="搜 索" />
@@ -51,7 +51,7 @@
             <div class="info-item f-left">
                 <h3><?= $cate['name'] ?></h3><ul>
                 <?php foreach ($cate['articles'] as $arti){
-                    echo '<li><a href="#/arti/'.$arti['id'].'">'.$arti['name'].'</a></li>';
+                    echo '<li><a href="#/article/'.$arti['id'].'">'.$arti['title'].'</a></li>';
                 }?>
                 </ul>
             </div>

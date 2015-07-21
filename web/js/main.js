@@ -11,6 +11,10 @@ shopModule.config(function ($routeProvider) {
             controller: 'detailCtrl',
             templateUrl: '/web/tpl/product/detail.tpl'
         })
+        .when('/article/:id', {
+            controller: 'articleCtrl',
+            templateUrl: '/web/tpl/article/detail.tpl'
+        })
         .when('/login', {
             controller: 'loginCtrl',
         //    templateUrl: '/web/tpl/user/login.tpl'
@@ -54,4 +58,8 @@ function clearActive() {
     for (var i = 0; i < headerNav.length; i++) {
         headerNav[i].className = '';
     }
+}
+
+function error(err){
+    alert(err)
 }
