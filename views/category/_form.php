@@ -14,9 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'fatherId')->textInput() ?>
+    <?= $form->field($model, 'fatherId')->dropDownList( [0=>'无'] +  yii\helpers\ArrayHelper::map(\app\models\Category::getTopType('id, name' ),'id','name'),['class'=>"form-control"]) ?>
 
-    <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'type')->dropDownList(['product'=>'商品','article'=>'文章']) ?>
 
     <?= $form->field($model, 'weight')->textInput() ?>
 

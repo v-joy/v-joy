@@ -27,6 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_hash',
             //'password_reset_token',
             'email:email',
+            'phone',
+            'address',
             'status',
             ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->created_at)],
             ['label'=>'修改时间','value'=>date(Yii::$app->params["date"],$model->updated_at)],
