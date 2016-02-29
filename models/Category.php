@@ -60,4 +60,8 @@ class Category extends Base
     public static function getType($type,$select = "*"){
         return Category::find()->select($select)->where(["type"=>$type])->orderBy("weight desc")->all();
     }
+
+    public static function getTopType($select = "*"){
+        return Category::find()->select($select)->where(["fatherId"=>0])->orderBy("weight desc")->all();
+    }
 }

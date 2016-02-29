@@ -9,7 +9,7 @@
             <div class="list-detail">
                 <a href="#/detail/{{item.id}}">
                     <span class="list-title">{{item.name}}</span>
-                    <span class="list-title-desc">{{item.desc}}</span>
+                    <span class="list-title-desc">{{item.description}}</span>
                 </a>
                 <p class="list-price">
                     <span>{{item.price}}</span>
