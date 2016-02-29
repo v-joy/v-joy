@@ -1,6 +1,6 @@
 shopModule
     .controller('listCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
-        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+        $http({url:"/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
             $scope.items = data;
         });
     }])
@@ -15,14 +15,14 @@ shopModule
     .controller('loginCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
         alert("现在不用登录也可以搜索商品了~~");
         return;
-        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+        $http({url:"/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
             $scope.items = data;
         });
     }])
     .controller('registerCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
         alert("内测阶段,注册服务暂时不对外公开~~");
         return ;
-        $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+        $http({url:"/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
             $scope.items = data;
         });
     }]);

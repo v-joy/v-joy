@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title><?php echo \Yii::$app->params['title']; ?></title>
-    <link rel="stylesheet/less" type="text/css" href="/web/less/all-style.less" />
+    <link rel="stylesheet/less" type="text/css" href="/less/all-style.less" />
     <!-- set options before less.js script -->
     <script>
         less = {
@@ -17,7 +17,7 @@
             rootpath: "/"
         };
     </script>
-    <script src="/web/js/common/less.min.js" type="text/javascript"></script>
+    <script src="/js/common/less.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="header">
@@ -59,12 +59,12 @@
     </div>
     <p>Copyright:©2015  <?= \Yii::$app->params['title'] ?> v-joy.net 京ICP证xxxxxx号 京公网安备110105xxxxxx号 电子公告服务规则</p>
 </div>
-<script src="/web/js/common/angular.min.js"></script>
-<script src="/web/js/common/angular-route.js"></script>
-<script src="/web/js/common/angular-resource.js"></script>
-<script src="/web/js/common/angular-animate.js"></script>
-<script src="/web/js/main.js"></script>
-<script src="/web/js/service.js"></script>
-<script src="/web/js/controller.js"></script>
+<script src="/js/common/angular.min.js"></script>
+<script src="/js/common/angular-route.js"></script>
+<script src="/js/common/angular-resource.js"></script>
+<script src="/js/common/angular-animate.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/service.js"></script>
+<script src="/js/controller.js"></script>
 </body>
 </html>

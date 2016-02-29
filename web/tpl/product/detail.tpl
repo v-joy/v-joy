@@ -3,7 +3,7 @@
     <div class="clearfix">
         <div class="f-left detail-img-wrap">
             <div>
-                <img src="/web/img/1.jpg" alt=""/>
+                <img src="/img/1.jpg" alt=""/>
             </div>
             <ul>
                 <li>

@@ -5,19 +5,19 @@ shopModule.config(function ($routeProvider) {
     $routeProvider
         .when('/list/:category/:search', {
             controller: 'listCtrl',
-            templateUrl: '/web/tpl/product/list.tpl'
+            templateUrl: '/tpl/product/list.tpl'
         })
         .when('/detail/:id', {
             controller: 'detailCtrl',
-            templateUrl: '/web/tpl/product/detail.tpl'
+            templateUrl: '/tpl/product/detail.tpl'
         })
         .when('/login', {
             controller: 'loginCtrl',
-        //    templateUrl: '/web/tpl/user/login.tpl'
+        //    templateUrl: '/tpl/user/login.tpl'
         })
         .when('/register', {
             controller: 'registerCtrl',
-        //    templateUrl: '/web/tpl/user/register.tpl'
+        //    templateUrl: '/tpl/user/register.tpl'
         })
         .otherwise({
             redirectTo: '/list/all/all'

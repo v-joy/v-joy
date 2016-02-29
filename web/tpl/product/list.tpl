@@ -3,7 +3,7 @@
         <div>
             <div class="list-img-box">
                 <a href="#/detail/{{item.id}}">
-                    <img src="/web/img/1.jpg" alt=""/>
+                    <img src="/img/1.jpg" alt=""/>
                 </a>
             </div>
             <div class="list-detail">
