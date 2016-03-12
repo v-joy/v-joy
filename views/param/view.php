@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'value',
             'fatherId',
+            'weight',
             'createTime:datetime',
         ],
     ]) ?>

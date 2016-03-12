@@ -29,7 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'name',
-            'price',
+            'chinesename',
+            'score',
             [
                 "attribute"=>"userId",
                 'label' => '用户',
@@ -40,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'description:ntext',
             // 'userId',
             // 'createTime:datetime',
-            // 'status',
+            [
+                'attribute'=>'status',
+                'label' => '状态',
+                'value' => function($model){
+                    return $model->status === 0?'未上线':'已上线';
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -6,40 +6,37 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '文章';
+$this->title = '排行榜';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-index">
+<div class="ranklist-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Ranklist', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            'title',
-            //'content:ntext',
+            'name',
+            'subname',
             [
-                "attribute"=>"userId",
+                'attribute'=>'userId',
                 'label' => '用户',
                 'value' => function($model){
                     return $model->user->username;
                 }
             ],
-            //'createTime:datetime',
+            'createTime:datetime',
             [
-                "attribute"=>"createTime",
+                'attribute'=>'status',
+                'label' => '状态',
                 'value' => function($model){
-                    return date(Yii::$app->params["date"],$model->createTime);
+                    return $model->status === 0?'未上线':'已上线';
                 }
             ],
-            // 'categoryId',
-            // 'status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -141,7 +141,8 @@ class ImageController extends BaseManageController
                 }
             }else{
                 $result["code"] = 400;
-                $result["msg"] = "图片不符合规定！".implode(';',$uploadModel->getErrors());
+                $error = $uploadModel->getErrors();
+                $result["msg"] = "图片不符合规定！".implode(';',$error['file']);
             }
             echo json_encode($result);
             exit;

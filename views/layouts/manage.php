@@ -36,6 +36,8 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     //['label' => '主页', 'url' => ['/site/index']],
+                    Yii::$app->user->can("ranklist/index")?
+                        ['label' => '排行榜', 'url' => ['/ranklist/index']]:"",
                     Yii::$app->user->can("product/index")?
                         ['label' => '产品', 'url' => ['/product/index']]:"",
                     Yii::$app->user->can("article/index")?
@@ -62,9 +64,6 @@ AppAsset::register($this);
                     ],
                     ['label' => '我的资料',
                         'url' => ['/user/view/'.Yii::$app->user->identity->id]
-                    ],
-                    ['label' => '修改密码',
-                        'url' => ['/user/update/'.Yii::$app->user->identity->id]
                     ],
                     ['label' => '退出('.Yii::$app->user->identity->username.')',
                         'url' => ['/site/logout'],

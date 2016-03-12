@@ -6,7 +6,8 @@ use yii\helpers\Html;
 /* @var $model app\models\Image */
 $this->title = '上传图片至 ' . $instance::tableName();
 $this->params['breadcrumbs'][] = ['label' => '图片', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label'=> '返回主列表', 'url' => '/'.$_GET['type'].'/index' ];
+$this->params['breadcrumbs'][] = ['label'=> '返回刚创建的数据', 'url' => '/'.$_GET['type'].'/view/'.$_GET['id'] ];
 $this->registerJsFile($baseUrl."/upload/js/webuploader.html5only.min.js",['depends' => [yii\web\JqueryAsset::className()]]);
 $this->registerJsFile($baseUrl."/upload/js/diyUpload.js",['depends' => [yii\web\JqueryAsset::className()]]);
 $this->registerCssFile($baseUrl."/upload/css/webuploader.css");

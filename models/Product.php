@@ -32,7 +32,7 @@ class Product extends Base
     public function rules()
     {
         return [
-            [['categoryId', 'name', 'price', 'description'], 'required'],
+            [['categoryId', 'name', 'chinesename', 'score', 'platform',  'description'], 'required'],
             [['categoryId',  'status'], 'integer'],
             [['description'], 'string'],
             [['name', 'price'], 'string', 'max' => 32]
@@ -47,12 +47,15 @@ class Product extends Base
         return [
             'id' => '主键',
             'categoryId' => '所属类别',
-            'name' => '名称',
-            'price' => '价格',
+            'name' => '英文名称',
             'description' => '描述',
             'userId' => '所属用户',
             'createTime' => '创建时间',
             'status' => '状态',
+// add attributes
+            'platform' => '支持平台',
+            'chinesename' => '中文名称',
+            'score' => '评分',
         ];
     }
 

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $model app\models\Rankitem */
 
-$this->title = $model->chinesename;
-$this->params['breadcrumbs'][] = ['label' => '产品', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Rankitems', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-view">
+<div class="rankitem-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,15 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            ['label'=>'类别','value'=>$model->category->name],
-            'name',
-            'chinesename',
-            'score',
-            'description:ntext',
-            'platform',
-            ['label'=>'用户','value'=>$model->user->username],
-            ['label'=>'创建时间','value'=>date(Yii::$app->params["date"],$model->createTime)],
-            ['label'=>'状态','value'=>$model->status === 0?'未上线':'已上线'],
+            'productId',
+            'rankId',
+            'reason',
         ],
     ]) ?>
 

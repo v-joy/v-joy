@@ -15,8 +15,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'categoryId')->dropDownList(yii\helpers\ArrayHelper::map(\app\models\Category::getType('product', 'id, name' ),'id','name'),['class'=>"form-control"]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'chinesename')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'score')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'platform')->dropDownList(yii\helpers\ArrayHelper::map(\app\models\Param::params('支持平台', 'value, name' ),'value','name'),['class'=>"form-control"]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

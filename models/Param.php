@@ -30,7 +30,7 @@ class Param extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'value', 'fatherId', 'createTime'], 'required'],
-            [['fatherId', 'createTime'], 'integer'],
+            [['fatherId', 'weight', 'createTime'], 'integer'],
             [['name'], 'string', 'max' => 31],
             [['value'], 'string', 'max' => 128]
         ];
@@ -46,7 +46,13 @@ class Param extends \yii\db\ActiveRecord
             'name' => '名称',
             'value' => '值',
             'fatherId' => '父类',
+            'weight' => '权重',
             'createTime' => '创建时间',
         ];
+    }
+
+    public static function Params($name,$select = "*"){
+        $type = Param::find()->select('id')->where(['name'=>$name])->orderBy("weight desc")->one();
+        return Param::find()->select($select)->where(["fatherId"=>$type->id])->orderBy("weight desc")->all();
     }
 }

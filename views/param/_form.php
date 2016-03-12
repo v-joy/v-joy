@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fatherId')->textInput() ?>
 
+    <?= $form->field($model, 'weight')->textInput() ?>
+
     <?= $form->field($model, 'createTime')->textInput() ?>
 
     <div class="form-group">
