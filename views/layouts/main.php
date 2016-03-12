@@ -30,11 +30,11 @@
     </div>
     <div class="nav-wrap">
         <div class="nav">
-            <ul id="header-nav">
-                <li data-id="all" class="active"><a href="#/list/all/all">首页</a></li>
-                <?php foreach ($this->params['p_cates'] as $cate) {
-                    echo "<li data-id='".$cate["id"]."'><a href='#/list/".$cate["id"]."/all'>".$cate['name']."</a></li>";
-                } ?>
+            <ul>
+                <li><a href="#/list/all/all">首页</a></li>
+                <?php if(is_array($this->params['p_cates'])){ foreach ($this->params['p_cates'] as $cate) {
+                    echo "<li><a href='#/list/".$cate["id"]."/all'>".$cate['name']."</a></li>";
+                }} ?>
             </ul>
 <!--            <div class="login-wrap">-->
 <!--                <a href="#/login">登录</a>-->
@@ -47,7 +47,7 @@
 <div id="footer">
     <hr/>
     <div class="info-box clearfix">
-        <?php foreach ($this->params['a_cates'] as $cate) {?>
+        <?php if(is_array($this->params['a_cates'])){ foreach ($this->params['a_cates'] as $cate) {?>
             <div class="info-item f-left">
                 <h3><?= $cate['name'] ?></h3><ul>
                 <?php foreach ($cate['articles'] as $arti){
@@ -55,7 +55,7 @@
                 }?>
                 </ul>
             </div>
-        <?php } ?>
+        <?php } } ?>
     </div>
     <p>Copyright:©2015  <?= \Yii::$app->params['title'] ?> v-joy.net 京ICP证xxxxxx号 京公网安备110105xxxxxx号 电子公告服务规则</p>
 </div>
