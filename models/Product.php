@@ -60,6 +60,10 @@ class Product extends Base
         return $this->hasOne(User::className(),['id'=>'userId']);
     }
 
+    public function getUrl(){
+        return $this->hasMany(Image::className(),['belongId'=>'id','mark']);
+    }
+
     public function getCategory(){
         return $this->hasOne(Category::className(),['id'=>'categoryId']);
     }

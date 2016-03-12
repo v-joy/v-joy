@@ -63,3 +63,8 @@ function clearActive() {
 function error(err){
     alert(err)
 }
+
+function formatDate(t){
+    var createTime = new Date(t);
+    return createTime.getFullYear() + '-' + createTime.getMonth() + '-' + createTime.getDay();
+}

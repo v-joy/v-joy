@@ -1,20 +1,24 @@
 shopModule
     .controller('listCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
         $http({url:"/web/ajax/products",params:{search:$route.search,category:$route.category},method:'get'}).success(function(data){
+            console.log(data);
             $scope.items = data;
         });
     }])
     .controller('detailCtrl', ["$scope", "$routeParams",'productService', function ($scope, $routeParams,$service) {
         $service.find({id:$routeParams.id},function(data){
-            //mark : need check code==200
-            var createTime = new Date(data.data.createTime);
-            data.data.createTime = createTime.getFullYear() + '-' + createTime.getMonth() + '-' + createTime.getDay();
+            if (data.code != 200) {
+                error("加载数据失败，请刷新页面~");
+                return false;
+            };
+            data.data.createTime = formatDate(data.data.createTime);
             $scope.item = data.data;
         });
     }])
     .controller('articleCtrl', ["$scope", "$routeParams",'$http', function ($scope, $route,$http) {
         $http({url:"/web/ajax/article",params:{id:$route.id},method:'get'}).success(function(data){
             if (data.code == 200) {
+                data.data.createTime = formatDate(data.data.createTime);
                 $scope.item = data.data;
             }else{
                 error('加载数据失败，请刷新页面~');
