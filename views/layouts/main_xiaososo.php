@@ -51,13 +51,13 @@
             <div class="info-item f-left">
                 <h3><?= $cate['name'] ?></h3><ul>
                 <?php foreach ($cate['articles'] as $arti){
-                    echo '<li><a href="#/arti/'.$arti['id'].'">'.$arti['name'].'</a></li>';
+                    echo '<li><a href="#/arti/'.$arti['id'].'">'.$arti['title'].'</a></li>';
                 }?>
                 </ul>
             </div>
         <?php } } ?>
     </div>
-    <p>Copyright:©2015  <?= \Yii::$app->params['title'] ?> v-joy.net 京ICP证xxxxxx号 京公网安备110105xxxxxx号 电子公告服务规则</p>
+    <p>Copyright:©<?php echo date('Y');?>  <?= \Yii::$app->params['title'] ?> v-joy.net 冀ICP备10206285号 </p>
 </div>
 <script src="/js/common/angular.min.js"></script>
 <script src="/js/common/angular-route.js"></script>
