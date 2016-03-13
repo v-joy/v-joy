@@ -95,7 +95,6 @@ class RanklistController extends BaseManageController
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
-var_dump($items);
         return $this->render('create', [
             'model' => $model,
             'items' => $items
@@ -124,7 +123,7 @@ var_dump($items);
             //loading the models if they are not new
             if (isset($formItem['id']) && isset($formItem['updateType']) && $formItem['updateType'] != Rankitem::UPDATE_TYPE_CREATE) {
                 //making sure that it is actually a child of the main model
-                $modelItem = Rankitem::fiadOne(['id' => $formItem['id'], 'rankId' => $model->id]);
+                $modelItem = Rankitem::findOne(['id' => $formItem['id'], 'rankId' => $model->id]);
                 $modelItem->setScenario(Rankitem::SCENARIO_BATCH_UPDATE);
                 $modelItem->setAttributes($formItem);
                 $items[$i] = $modelItem;
