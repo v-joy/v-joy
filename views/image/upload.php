@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Image */
@@ -21,6 +22,25 @@ $this->registerCssFile($baseUrl."/upload/css/diyUpload.css");
         <div id="uploadDiv" ></div>
     </div>
 
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            'name',
+            [
+                "attribute"=>"url",
+                'label' => '链接',
+                'format' => 'url',
+                'value' => function($model){
+                    return $model->src;
+                }
+            ],
+            'type',
+            'belongId',
+            // 'createTime:datetime',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>
 <script type="text/javascript">
     var uploadOption = {

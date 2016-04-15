@@ -84,7 +84,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; <? echo Yii::$app->params["companyName"] ?> <?= date('Y') ?></p>
+            <p class="pull-left">&copy; <?php echo Yii::$app->params["companyName"]; ?> <?= date('Y') ?></p>
             <p class="pull-right">mark this moment</p>
         </div>
     </footer>

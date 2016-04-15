@@ -109,14 +109,14 @@ class RanklistController extends BaseManageController
      */
     public function actionUpdate($id)
     {
+
+        $model = $this->findModel($id);
         if (\Yii::$app->user->can('modifyOwn', ['model' => $model])) {
             //echo 'yes';exit;
             //mark
         }else{
             //echo 'no';exit;
         }
-
-        $model = $this->findModel($id);
         $items = $model->rankitems;
         $formItems = Yii::$app->request->post('Rankitem', []);
         foreach ($formItems as $i => $formItem) {

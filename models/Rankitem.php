@@ -102,4 +102,10 @@ class Rankitem extends Base
     {
         return $this->hasOne(Ranklist::className(), ['id' => 'rankId']);
     }
+
+    public function format() {
+        $attr = $this->getAttributes();
+        $attr['product'] = $this->product->format();
+        return $attr;
+    }
 }

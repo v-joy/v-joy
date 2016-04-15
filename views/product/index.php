@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 "attribute"=>"categoryId",
                 'label' => '类别',
                 'value' => function($model){
-                    return $model->category->name;
+                    $category = $model->category;
+                    return isset($category->name)?$category->name:"默认";
                 }
             ],
             'name',
@@ -49,7 +50,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header' => '操作',
+                'template' => '{view} {update} {delete} {pic}',
+                'buttons' => [
+                    'pic' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-list"></span>', $url, [
+                            'title' => Yii::t('app', '图片管理'),
+                        ]);
+                    }
+                ],
+                'urlCreator' => function ($action, $model, $key, $index) {
+                    if ($action === 'pic') {
+                        return ['/image/upload', "type"=>"product",'id' => $model->id];
+                    } 
+                }
+            ],
         ],
     ]); ?>
 

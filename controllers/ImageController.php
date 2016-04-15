@@ -121,6 +121,10 @@ class ImageController extends BaseManageController
             exit;
         }
 
+        $dataProvider = new ActiveDataProvider([
+            'query' => Image::find()->where(['type'=>$type,'belongId'=>$id]),
+        ]);
+
         $instanceModel = 'app\\models\\'.ucfirst(strtolower($type));
         $instance = $instanceModel::findOne($id);
 
@@ -150,7 +154,8 @@ class ImageController extends BaseManageController
         }else{
             return $this->render("upload",[
                 'instance' => $instance,
-                'model' => $model
+                'model' => $model,
+                'dataProvider' => $dataProvider,
             ]);
         }
     }

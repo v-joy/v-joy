@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 "attribute"=>"userId",
                 'label' => '用户',
                 'value' => function($model){
-                    return $model->user->username;
+                    return isset($model->user->username)?$model->user->username:"默认";
                 }
             ],
             //'createTime:datetime',

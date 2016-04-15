@@ -35,7 +35,11 @@ class Base extends \yii\db\ActiveRecord
     public static function toArr($models){
         $array = [];
         foreach ((array)$models as $model) {
-            $array[] = $model->getAttributes();
+            if ($model->hasMethod('format')) {
+                $array[] = $model->format();
+            } else {
+                $array[] = $model->getAttributes();
+            }
         }
         return $array;
     }

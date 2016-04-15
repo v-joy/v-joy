@@ -1,0 +1,65 @@
+.product-container{
+    padding: 10px;
+}
+.product-container .product-picture{
+    display: block;
+    width: 100%;
+}
+
+.product-chinesename {
+    line-height: 36px;
+    font-size: 30px;
+    color:#101010;
+}
+
+.product-name {
+    line-height: 36px;
+    font-size: 18px;
+    color:#b3aab3;
+}
+
+.product-container .product-score{
+    display: block;
+    width: 19px;
+    height: 19px;
+    float: right;
+    margin: 7px 3px 7px 0px;
+}
+
+.product-container .product-scorenum{
+    color: #b3aab3;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.product-container .product-picture {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+}
+
+.product-container .product-platform {
+    font-size: 16px;
+    line-height: 20px;    
+}
+
+.product-container .product-platform .platform-title {
+    margin: 5px 20px 0 10px;
+}
+
+.product-container .product-platform .platform-device{
+    height: 18px;
+    padding: 0 10px;
+    line-height: 18px;
+    color: #b3aab3;
+    border: 1px solid #aaaaaa;
+    margin: 5px 10px 0 0;
+    font-size: 14px;
+}
+
+.product-container .product-desc {
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 20px;
+}

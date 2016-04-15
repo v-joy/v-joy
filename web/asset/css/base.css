@@ -1,0 +1,21 @@
+.clear {
+    zoom: 1;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.f-right {
+    float: right;
+}
+
+.f-left {
+    float: left;
+}
+
+.text-center {
+    text-align: center;
+}

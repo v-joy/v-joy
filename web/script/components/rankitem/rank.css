@@ -1,0 +1,47 @@
+.rank-item-container {
+    border: 1px solid #DDD;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0px 0px 3px  #999;
+}
+
+.rank-item-container img {
+    height: 60px;
+    width: 200px;
+}
+
+.rank-item-container .rank-item-title {
+    margin-left: 210px; 
+}
+
+.rank-item-container .rank-item-chinesename {
+    color: #101010;
+    font: 20px/36px 'Microsoft';
+}
+
+.rank-item-container .rank-item-name {
+    color: #101010;
+    font: 16px/24px 'Microsoft';
+}
+
+.rank-item-container .rank-item-desc {
+    padding: 10px 0px;
+    font: 12px/16px "Microsoft";
+    color: #b3aab3;
+}
+
+.rank-item-container .rank-item-index {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #DDD;
+    display: block;
+    text-align: center;
+    line-height: 28px;
+}
+.rank-item-container .rank-item-top {
+    position: relative;
+}

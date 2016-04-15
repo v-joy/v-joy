@@ -66,4 +66,19 @@ class Product extends Base
     public function getCategory(){
         return $this->hasOne(Category::className(),['id'=>'categoryId']);
     }
+
+    public function getPictures() {
+        return $this->hasMany(Image::className(),['belongId'=>'id'])->andOnCondition(['type' => 'product']);
+    }
+
+    public function format() {
+        $product = $this->getAttributes();
+        $product['platform'] = explode('/', $product['platform']);
+        $product['score'] /= 10;
+        $product['pictures'] = self::toArr($this->pictures);
+        $product['picture'] = isset($product['pictures'][0])?$product['pictures'][0]:"";
+        $product['icon'] = isset($product['pictures'][1])?$product['pictures'][1]:$product['picture'];
+        unset($product['pictures']);
+        return $product;
+    }
 }

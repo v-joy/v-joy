@@ -16,6 +16,8 @@ use app\models\Article;
 
 class SiteController extends BaseFrontController
 {
+    public $layout  = false;
+    
     public function behaviors()
     {
         return [
@@ -62,15 +64,10 @@ class SiteController extends BaseFrontController
         ];
     }
 
-    public function actionTest()
-    {
-        return $this->renderPartial('index.tpl',["name"=>"test"]);
-    }
-
     public function actionIndex()
     {
 
-        return $this->render('index.tpl',[]);
+        return $this->render('index',[]);
     }
 
     public function actionLogin()

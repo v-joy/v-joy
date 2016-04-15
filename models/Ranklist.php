@@ -59,4 +59,13 @@ class Ranklist extends Base
     {
         return $this->hasMany(Rankitem::className(), ['rankId' => 'id']);
     }
+
+    public function format() {
+        $attr = $this->getAttributes();
+        $attr['rankitems'] = [];
+        foreach ($this->rankitems as $rankitem) {
+            $attr['rankitems'][] = $rankitem->format();
+        }
+        return $attr;
+    }
 }

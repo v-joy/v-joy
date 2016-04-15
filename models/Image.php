@@ -52,6 +52,13 @@ class Image extends Base
         ];
     }
 
+    public function format()
+    {
+        $data = $this->getAttributes();
+        $data['src'] = $this->src;
+        return $data;
+    }
+
     public function getSrc(){
         return Yii::$app->request->hostInfo.Yii::$app->params['upload.path'].$this->url;
     }
