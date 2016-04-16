@@ -16,7 +16,7 @@ use app\models\Article;
 
 class SiteController extends BaseFrontController
 {
-    public $layout  = false;
+    public $layout  = 'manage';
     
     public function behaviors()
     {

@@ -23,7 +23,7 @@ class UploadForm extends Model
     }
 
     public function getUploadPath(){
-        return Yii::$app->basePath. '/web' .Yii::$app->params['upload.path'];
+        return Yii::$app->basePath. '/front' .Yii::$app->params['upload.path'];
     }
 
 }
