@@ -1,6 +1,12 @@
 .product-container{
     padding: 10px;
 }
+
+.product-container pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 .product-container .product-picture{
     display: block;
     width: 100%;
@@ -62,4 +68,5 @@
     font-size: 14px;
     line-height: 20px;
     padding-top: 20px;
+    color: #101010;
 }

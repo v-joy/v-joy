@@ -43,7 +43,7 @@ class StaticPage extends Component {
                 );
             };
         };
-        let picurl = "";
+        let picurl = '';
         if (product.picture) {
             picurl = product.picture.src;
         };
@@ -66,7 +66,7 @@ class StaticPage extends Component {
                     {platformlist}
                 </div>
                 <hr />
-                <p className="product-desc">{product.description}</p>
+                <p className="product-desc"><pre>{product.description}</pre></p>
 
                 <br />
                 <br />
