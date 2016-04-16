@@ -2,9 +2,9 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8">
-        <title><?php echo \Yii::$app->params["companyName"] ?></title>
+        <title>卢百万科技</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+        <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
         <link rel="stylesheet" type="text/css" href="/asset/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="/asset/css/base.css">
         <script>
