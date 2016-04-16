@@ -38,6 +38,10 @@ AppAsset::register($this);
                     //['label' => '主页', 'url' => ['/site/index']],
                     Yii::$app->user->can("ranklist/index")?
                         ['label' => '排行榜', 'url' => ['/ranklist/index']]:"",
+                    /* 
+                    Yii::$app->user->can("rankitem/index")?
+                        ['label' => '排行榜数据', 'url' => ['/rankitem/index']]:"",
+                    */
                     Yii::$app->user->can("product/index")?
                         ['label' => '产品', 'url' => ['/product/index']]:"",
                     Yii::$app->user->can("article/index")?
@@ -59,9 +63,9 @@ AppAsset::register($this);
                     Yii::$app->user->can("user/index")?
                         ['label' => '用户', 'url' => ['/user/index']]:"",
                     ['label' => '|'],
-                    ['label' => '我的产品',
+                    /*['label' => '我的产品',
                         'url' => ['/product/index?userid='.Yii::$app->user->identity->id]
-                    ],
+                    ],*/
                     ['label' => '我的资料',
                         'url' => ['/user/view/'.Yii::$app->user->identity->id]
                     ],

@@ -30,15 +30,16 @@ class StaticPage extends Component {
         if (product.platform) {
             product.platform.map((platform,i) => {
                 return platformlist.push(
-                    <span className="f-left platform-device">{platform}</span>
+                    <span key={i} className="f-left platform-device">{platform}</span>
                 );
             });
         };
         let pilllist = [];
         if (product.score) {
-            for (var i = 0; i < product.score; i++) {
+            let score = Math.round(product.score);
+            for (var i = 0; i < score; i++) {
                 pilllist.push(
-                    <img className="product-score" src="/asset/imgs/pill.png" />
+                    <img key={i} className="product-score" src="/asset/imgs/pill.png" />
                 );
             };
         };

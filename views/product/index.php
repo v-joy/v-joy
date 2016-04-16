@@ -59,12 +59,26 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('<span class="glyphicon glyphicon-list"></span>', $url, [
                             'title' => Yii::t('app', '图片管理'),
                         ]);
+                    },
+                    'delete' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
+                                    'title' => \Yii::t('yii', '删除'),
+                                    'data-confirm' => \Yii::t('yii', '确认要删除吗?'),
+                                    'data-method' => 'post',
+                                    'data-pjax' => '0',
+                        ]);
                     }
                 ],
                 'urlCreator' => function ($action, $model, $key, $index) {
                     if ($action === 'pic') {
                         return ['/image/upload', "type"=>"product",'id' => $model->id];
-                    } 
+                    } else if ($action === 'view') {
+                        return ['/product/view', 'id' => $model->id];
+                    } elseif ($action === 'update') {
+                        return ['/product/update', 'id' => $model->id];
+                    } elseif ($action === 'delete') {
+                        return ['/product/delete', 'id' => $model->id];
+                    }
                 }
             ],
         ],

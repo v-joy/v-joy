@@ -9,7 +9,7 @@ import rawFetch from 'isomorphic-fetch';
 
 es6Promise.polyfill();
 
-const BASE_URL = '';
+const BASE_URL = '/ajax';
 // 默认的一些配置
 const BASE_OPTIONS = {
     method: 'post',
@@ -29,6 +29,7 @@ function fetch(path, httpMethod, params, options) {
     let config;
     let url = BASE_URL + path;
 
+/*
     if (FLAG_DEV) {
         if(path === '/roles' ){
             url = '/mockups' + path + '.json';
@@ -37,7 +38,7 @@ function fetch(path, httpMethod, params, options) {
             url = '/ajax' + path;
         }
     }
-
+*/
     if (httpMethod === 'get') {
         if (params) {
             url = [url, makeQueryString(params)].join('');
@@ -53,7 +54,6 @@ function fetch(path, httpMethod, params, options) {
             .then(checkStatus)
             .then(parseJSON)
             .then(function (res) {
-                console.log(res.data)
                 return res.data;
             })
             .catch(function (errRes) {

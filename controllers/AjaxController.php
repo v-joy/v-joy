@@ -67,6 +67,7 @@ class AjaxController extends BaseFrontController
             $condition['categoryId'] = $category;
         }
         if ('all' !== $search) {
+            // mark todo: 这里应该
             $condition['name'] = ['like', 'name', $search];
         }
         $this->success(Product::toArr(Product::find()->where($condition)->all()));
