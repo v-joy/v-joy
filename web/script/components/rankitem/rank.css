@@ -7,40 +7,50 @@
 }
 
 .rank-item-container img {
-    height: 60px;
-    width: 200px;
+    height: 56px;
+    width: 150px;
 }
 
 .rank-item-container .rank-item-title {
-    margin-left: 210px; 
+    margin-left: 160px; 
 }
 
 .rank-item-container .rank-item-chinesename {
     color: #101010;
-    font: 20px/36px 'Microsoft';
+    font: 16px/23px 'Microsoft';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    font-weight: 500;
 }
 
 .rank-item-container .rank-item-name {
     color: #101010;
-    font: 16px/24px 'Microsoft';
+    font: 11px/16px 'Microsoft';
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    height: 32px;
 }
 
 .rank-item-container .rank-item-desc {
     padding: 10px 0px;
-    font: 12px/16px "Microsoft";
+    font: 13px/18px 'Microsoft';
     color: #b3aab3;
 }
 
 .rank-item-container .rank-item-index {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: -1px;
+    top: -1px;
     width: 26px;
     height: 26px;
     border: 1px solid #DDD;
     display: block;
     text-align: center;
     line-height: 28px;
+    color: #101010;
 }
 .rank-item-container .rank-item-top {
     position: relative;

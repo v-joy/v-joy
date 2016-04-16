@@ -35,7 +35,7 @@ class Product extends Base
             [['categoryId', 'name', 'chinesename', 'score', 'platform',  'description'], 'required'],
             [['categoryId',  'status'], 'integer'],
             [['description'], 'string'],
-            [['name', 'price'], 'string', 'max' => 32]
+            [['price'], 'string', 'max' => 32]
         ];
     }
 

@@ -14,6 +14,7 @@ class Rankitem extends React.Component {
     }
     render() {
         let {item,rankindex} = this.props;
+        rankindex++;
         let productUrl = "/product/"+item.product.id;
         let picurl = '';
         if (item.product.icon) {
