@@ -18,7 +18,8 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiisoft/yii2-smarty": "*"
+        "yiisoft/yii2-smarty": "*",
+        "overtrue/wechat": "~3.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

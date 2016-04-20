@@ -31,3 +31,9 @@ phpunit.phar
 /migrations
 /console
 node_modules
+
+
+# assets
+/web/assets
+
+#actually venders should be ignored too ......
