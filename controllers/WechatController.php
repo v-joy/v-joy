@@ -21,12 +21,8 @@ class WechatController extends BaseFrontController
         ];
     }
 
-    public function actions()
-    {
+    public function actions() {
         return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
@@ -35,17 +31,15 @@ class WechatController extends BaseFrontController
     }
 
     public function actionIndex() {
-$server = $this->_app->server;
-//$user   = $app->user;
-//$oauth  = $app->oauth;
-$server->setMessageHandler(function ($message) {
-    $text = new Text(['content' => '您好～ 来看看我们的网站吧: http://hongyaowan.com   有什么建议可以给我发邮件呦~ nosql@icloud.com']);
-    return $text;
-});
+        $server = $this->_app->server;
+        //$user   = $app->user;
+        //$oauth  = $app->oauth;
+        $server->setMessageHandler(function ($message) {
+            $text = new Text(['content' => '您好～ 来看看我们的网站吧: http://hongyaowan.com   有什么建议可以给我发邮件呦~ nosql@icloud.com']);
+            return $text;
+        });
 
-$server->serve()->send();
-exit;
-
+        $server->serve()->send();
+        exit;
     }
-
 }

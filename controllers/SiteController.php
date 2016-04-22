@@ -55,18 +55,9 @@ class SiteController extends BaseFrontController
         $this->view->params['a_cates'] = $a_catesArray;
     }
 
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
     public function actionIndex()
     {
-
+        $this->layout = false;
         return $this->render('index',[]);
     }
 

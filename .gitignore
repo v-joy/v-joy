@@ -13,9 +13,7 @@ nbproject
 Thumbs.db
 
 #db related 
-/config/db.php
-/config/params.php
-/config/web.php
+/config
 
 # composer itself is not needed
 composer.phar
@@ -35,5 +33,6 @@ node_modules
 
 # assets
 /web/assets
+/web/uploadfile
 
 #actually venders should be ignored too ......
