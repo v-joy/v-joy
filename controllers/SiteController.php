@@ -10,6 +10,7 @@ use app\models\ContactForm;
 use app\models\SignupForm;
 use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
+use app\models\Wechat;
 
 use app\models\Category;
 use app\models\Article;
@@ -43,6 +44,7 @@ class SiteController extends BaseFrontController
 
     public function init(){
         parent::init();
+/*
         $a_cates = Category::find()->where(["type"=>"article"])->orderBy("weight desc")->all();
         $a_catesArray = [];
         foreach($a_cates as $key=>$cate){
@@ -53,12 +55,14 @@ class SiteController extends BaseFrontController
 
         $this->view->params['p_cates'] = Category::toArr(Category::find()->where(["type"=>"product"])->orderBy("weight desc")->all());
         $this->view->params['a_cates'] = $a_catesArray;
+*/
     }
 
     public function actionIndex()
     {
         $this->layout = false;
-        return $this->render('index',[]);
+        $wechat = Wechat::Load();
+        return $this->render('index',['js'=>$wechat->js]);
     }
 
     public function actionLogin()
